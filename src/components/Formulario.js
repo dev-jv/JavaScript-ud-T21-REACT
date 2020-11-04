@@ -3,7 +3,7 @@ import {calcularTotal} from '../Helpers';
 
 const Formulario = (props) => {
 
-    const {cantidad, guardarCantidad, plazo, guardarPlazo, total, guardarTotal} = props;
+    const {cantidad, guardarCantidad, plazo, guardarPlazo, total, guardarTotal, guardarCargando} = props;
 
     const [error, guardarError] = useState(false)
 
@@ -20,12 +20,22 @@ const Formulario = (props) => {
         // Eliminar el msj de error previo
         guardarError(false);
 
-        // Realizar la cotización
-        const total = calcularTotal(cantidad, plazo);
-       
-        // Una vez calculado, guardarTotal
-        // console.log(total);
-        guardarTotal(total);
+        //habilitar Spinner
+        guardarCargando(true);
+
+        setTimeout(()=>{
+
+            // Realizar la cotización
+            const total = calcularTotal(cantidad, plazo);
+        
+            // Una vez calculado, guardarTotal
+            // console.log(total);
+            guardarTotal(total);
+
+            // Desabilitar Spinner
+            guardarCargando(false);
+
+        }, 3000);
     }
 
     return ( 
