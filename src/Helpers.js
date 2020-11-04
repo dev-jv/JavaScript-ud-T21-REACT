@@ -12,8 +12,7 @@ export function calcularTotal(cantidad, plazo) {
         totalCantidad = cantidad * .10;
     }
 
-    console.log(totalCantidad);
-
+    // console.log(totalCantidad);
 
     let totalPlazo = 0;
 
@@ -36,6 +35,7 @@ export function calcularTotal(cantidad, plazo) {
 
     // console.log(totalPlazo);
     return totalPlazo + totalCantidad + cantidad;
+    
 }
 
 
